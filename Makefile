@@ -20,11 +20,12 @@ prune: down
 	docker system prune -af
 
 # DANGER: Remove everything including database data
-nuke: down
-	@echo "⚠️  WARNING: This will delete ALL data including MongoDB!"
+nuke:
+	@echo "⚠️ WARNING: This will delete ALL data including MongoDB!"
 	@echo "Press Ctrl+C to cancel, or wait 5 seconds..."
 	@sleep 5
-	docker system prune -af --volumes
+	docker compose down -v
+	docker system prune -af
 	@echo "✅ Everything deleted!"
 	
 # Tail logs for all services
