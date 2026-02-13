@@ -62,7 +62,7 @@ export function setupSocket(server: any) {
       if (!token) return next(new Error("Unauthorized"));
       if (!sessionId) return next(new Error("Missing sessionId"));
 
-      const decoded = jwt.verify(token," process.env.JWT_SECRET" as string) as { userId: string };
+      const decoded = jwt.verify(token, process.env.JWT_SECRET as string) as { userId: string };
       const user = await User.findById(decoded.userId);
       if (!user) return next(new Error("User not found"));
 

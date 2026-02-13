@@ -11,9 +11,12 @@ services:
   backend:
     build: ./backend
     container_name: backend
-    environment:
-      - PORT=5001
-      - MONGO_URI=mongodb://mongo:27017/pokemon-game
+    # environment:
+    #   - PORT=5001
+    #   - MONGO_URI=mongodb://mongo:27017/pokemon-game
+    #   - JWT_SECRET=your_secret_here
+    env_file:
+      - .env
     restart: always
     depends_on:
       - mongo

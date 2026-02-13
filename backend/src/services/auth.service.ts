@@ -28,7 +28,7 @@ export const signup = async ({ email, password }: SignupInput) => {
 
   const token = jwt.sign(
     { userId: user._id },
-   " process.env.JWT_SECRET" as string,
+    process.env.JWT_SECRET as string,
     { expiresIn: "1h" }
   );
 
@@ -60,7 +60,7 @@ export const login = async ({ email, password }: LoginInput) => {
 
   const token = jwt.sign(
     { userId: user._id },
-   " process.env.JWT_SECRET" as string,
+    process.env.JWT_SECRET as string,
     { expiresIn: "1h" }
   );
 
